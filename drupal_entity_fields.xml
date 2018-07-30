@@ -1,0 +1,181 @@
+<templateSet group="Drupal 8 entity fields">
+  <template name="drupal_entity_string_field" value="/**&#10; * @see \Drupal\Core\Field\Plugin\Field\FieldType\StringItem;&#10; */&#10;$fields['$fieldname$'] = BaseFieldDefinition::create('string')&#10;      -&gt;setLabel(t('$label$'))&#10;      -&gt;setSettings([&#10;        'max_length' =&gt; 50,&#10;        'text_processing' =&gt; 0,&#10;      ])&#10;      -&gt;setDefaultValue('')&#10;      -&gt;setDisplayOptions('view', [&#10;        'label' =&gt; 'above',&#10;        'type' =&gt; 'string',&#10;        'weight' =&gt; -4,&#10;      ])&#10;      -&gt;setDisplayOptions('form', [&#10;        'type' =&gt; 'string_textfield',&#10;        'weight' =&gt; -4,&#10;      ])&#10;      -&gt;setDisplayConfigurable('form', TRUE)&#10;      -&gt;setDisplayConfigurable('view', TRUE)&#10;      -&gt;setRequired(TRUE);&#10;      &#10;      " shortcut="SPACE" description="Defines the 'string' entity field type." toReformat="true" toShortenFQNames="true">
+    <variable name="fieldname" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="label" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="drupal_entity_reference_field_bundles" value="/**&#10; * @see \Drupal\Core\Field\Plugin\Field\FieldType\EntityReferenceItem;&#10; */&#10;$fields['$fieldname$'] = BaseFieldDefinition::create('entity_reference')&#10;      -&gt;setLabel(t( '$fieldlabel$'))&#10;      -&gt;setSettings(['target_type', 'node'])&#10;      -&gt;setSetting('handler', 'default')&#10;      -&gt;setSetting('handler_settings', [&#10;        'target_bundles' =&gt; ['$bundle_type$'],&#10;        'auto_create' =&gt; 'false',&#10;        'auto_create_bundle' =&gt; ''&#10;      ])&#10;      -&gt;setDisplayOptions('form', [&#10;        'type' =&gt; 'entity_reference_autocomplete',&#10;        'weight' =&gt; 5,&#10;        'settings' =&gt; [&#10;          'match_operator' =&gt; 'CONTAINS',&#10;          'size' =&gt; '60',&#10;          'autocomplete_type' =&gt; 'tags',&#10;          'placeholder' =&gt; '',&#10;        ],&#10;      ])&#10;      -&gt;setCardinality(BaseFieldDefinition::CARDINALITY_UNLIMITED)&#10;      -&gt;setDisplayConfigurable('form', TRUE)&#10;      -&gt;setDisplayConfigurable('view', TRUE);&#10;      &#10;      " description="Defines the 'entity_reference' entity field type." toReformat="true" toShortenFQNames="true">
+    <variable name="fieldname" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="fieldlabel" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="bundle_type" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="drupal_entity_link_field" value="/**&#10; * @see Drupal\file\Plugin\Field\FieldType/LinkItem;&#10; */&#10;$fields['$fieldname$'] = BaseFieldDefinition::create('link')&#10;  -&gt;setLabel(t('$label$'))&#10;&#10;  -&gt;setDisplayOptions('form', [&#10;    'type' =&gt; 'link_default',&#10;  ])&#10;  -&gt;setSettings(&#10;    ['title' =&gt; DRUPAL_REQUIRED, 'link_type' =&gt; LinkItemInterface::LINK_EXTERNAL]&#10;  )&#10;  -&gt;setDefaultValue('')&#10;  -&gt;setDisplayConfigurable('form', TRUE)&#10;  -&gt;setDisplayConfigurable('view', TRUE)&#10;  -&gt;setCardinality(BaseFieldDefinition::CARDINALITY_UNLIMITED)&#10;  -&gt;setRequired(TRUE);&#10;  &#10;  " description="Defines the 'link' entity field type." toReformat="false" toShortenFQNames="true">
+    <variable name="fieldname" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="label" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="drupal_entity_file_field" value=" /**&#10; * @see \Drupal\file\Plugin\Field\FieldType\FileItem;&#10; */&#10;$fields['$fieldname$'] = BaseFieldDefinition::create('file')&#10;  -&gt;setLabel(t('$fieldlabel'))&#10;  -&gt;setDisplayOptions('form', [&#10;    'type' =&gt; 'file_generic',&#10;  ])&#10;#  -&gt;setCardinality(BaseFieldDefinition::CARDINALITY_UNLIMITED)&#10;  -&gt;setDisplayConfigurable('form', TRUE)&#10;  -&gt;setDisplayConfigurable('view', TRUE)&#10;  -&gt;setSetting('file_extensions', 'pdf, zip, txt, docx, png, jpg')&#10;  -&gt;setSetting('file_directory', '[date:custom:Y]-[date:custom:m]')&#10;  -&gt;setRequired(FALSE);&#10;  &#10;  " description="Defines the 'file' entity field type." toReformat="false" toShortenFQNames="true">
+    <variable name="fieldname" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="drupal_entity_boolean_field" value="/**&#10; * @see \Drupal\Core\Field\Plugin\Field\FieldType\BooleanItem;&#10; */ &#10;$fields['$fieldname$'] = BaseFieldDefinition::create('boolean')&#10;    -&gt;setLabel(t('$fieldlabel$'))&#10;    -&gt;setLabel(t('$fieldlabel$'))&#10;    -&gt;setDisplayOptions('view', [&#10;        'label' =&gt; 'above',&#10;        'type' =&gt; 'boolean',&#10;        'weight' =&gt; -4,&#10;    ])&#10;    -&gt;setDisplayOptions('form', [&#10;        'label' =&gt; 'above',&#10;        'type' =&gt; 'boolean_checkbox',&#10;        'weight' =&gt; -4,&#10;    ])&#10;    -&gt;setDisplayConfigurable('form', TRUE)&#10;    -&gt;setDisplayConfigurable('view', TRUE)&#10;    -&gt;setRequired(TRUE);&#10;&#10;  " shortcut="SPACE" description="Defines the 'boolean' entity field type." toReformat="true" toShortenFQNames="true">
+    <variable name="fieldname" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="fieldlabel" expression="capitalize(fieldname)" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="drupal_entity_datetime_field" value="/**&#10; * @see \Drupal\datetime\Plugin\Field\FieldType\DateTimeItem&#10; * @see \Drupal\datetime\Plugin\Field\FieldFormatter\DateTimeDefaultFormatter&#10; * @see \Drupal\datetime\Plugin\Field\FieldWidget\DateTimeWidgetBase&#10; */&#10;$fields['$fieldname$'] = BaseFieldDefinition::create('datetime')&#10;      -&gt;setLabel(t('$label$'))&#10;      -&gt;setDefaultValue('')&#10;      -&gt;setDisplayOptions('view', [&#10;        'label' =&gt; 'above',&#10;        'type' =&gt; 'datetime_default', // possible values datetime_custom, datetime_plain, datetime_time_ago&#10;        'weight' =&gt; -4,&#10;      ])&#10;      -&gt;setDisplayOptions('form', [&#10;        'type' =&gt; 'datetime_default', // datetime_datelist&#10;        'weight' =&gt; 0,&#10;      ])&#10;      -&gt;setDisplayConfigurable('form', TRUE)&#10;      -&gt;setDisplayConfigurable('view', TRUE)&#10;      -&gt;setRequired(TRUE);" description="Defines the 'datetime' entity field type." toReformat="false" toShortenFQNames="true">
+    <variable name="fieldname" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="label" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="drupal_entity_integer_field" value="/**&#10; * @see \Drupal\Core\Field\Plugin\Field\FieldType\IntegerItem;&#10; */&#10;$fields['$fieldname$'] = BaseFieldDefinition::create('integer')&#10;      -&gt;setLabel(t('$label$'))&#10;      -&gt;setDefaultValue('')&#10;      -&gt;setDisplayOptions('view', [&#10;        'label' =&gt; 'above',&#10;        'type' =&gt; 'number_integer'&#10;        'weight' =&gt; -4,&#10;      ])&#10;      -&gt;setDisplayOptions('form', [&#10;        'type' =&gt; 'number',&#10;        'weight' =&gt; -4,&#10;      ])&#10;      -&gt;setDisplayConfigurable('form', TRUE)&#10;      -&gt;setDisplayConfigurable('view', TRUE)&#10;      -&gt;setRequired(TRUE);&#10;      " shortcut="SPACE" description="Defines the 'integer' entity field type." toReformat="false" toShortenFQNames="true">
+    <variable name="fieldname" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="label" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="drupal_entity_decimal_field" value="/**&#10; * @see \Drupal\Core\Field\Plugin\Field\FieldType\DecimalItem;&#10; */&#10;$fields['$fieldname$'] = BaseFieldDefinition::create('decimal')&#10;      -&gt;setLabel(t('$label$'))&#10;      -&gt;setDefaultValue('')&#10;      -&gt;setDisplayOptions('view', [&#10;        'label' =&gt; 'above',&#10;        'type' =&gt; 'number_decimal',&#10;        'weight' =&gt; -4,&#10;      ])&#10;      -&gt;setDisplayOptions('form', [&#10;        'type' =&gt; 'number',&#10;        'weight' =&gt; -4,&#10;      ])&#10;      -&gt;setDisplayConfigurable('form', TRUE)&#10;      -&gt;setDisplayConfigurable('view', TRUE)&#10;      -&gt;setRequired(TRUE);&#10;      " description="Defines the 'decimal' entity field type." toReformat="false" toShortenFQNames="true">
+    <variable name="fieldname" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="label" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="drupal_entity_changed_field" value="/**&#10; * @see \Drupal\Core\Field\Plugin\Field\FieldType\StringItem;&#10; */&#10;$fields['$fieldname$'] = BaseFieldDefinition::create('changed')&#10;    -&gt;setLabel(t('$fieldlabel$'));&#10;    -&gt;setDisplayConfigurable('form', TRUE)&#10;    -&gt;setDisplayConfigurable('view', TRUE)&#10;    -&gt;setRequired(TRUE);&#10;  &#10;  " description="Defines the 'changed' entity field type" toReformat="false" toShortenFQNames="true">
+    <variable name="fieldname" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="fieldlabel" expression="" defaultValue="Changed" alwaysStopAt="true" />
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="drupal_entity_comment_field" value="/**&#10; * @see \Drupal\Core\Field\Plugin\Field\FieldType\CommentItem;&#10; */&#10;$fields['$fieldname$'] = BaseFieldDefinition::create('comment')&#10;    -&gt;setLabel(t('$fieldlabel$'))&#10;      -&gt;setDisplayOptions('view', [&#10;        'label' =&gt; 'above',&#10;        'type' =&gt; 'comment_default',&#10;        'weight' =&gt; -4,&#10;      ])&#10;    -&gt;setDisplayOptions('form', [&#10;        'label' =&gt; 'above',&#10;        'type' =&gt; 'comment_default',&#10;        'weight' =&gt; -4,&#10;    ])&#10;    -&gt;setDisplayConfigurable('form', TRUE)&#10;    -&gt;setDisplayConfigurable('view', TRUE)&#10;    -&gt;setRequired(TRUE);" shortcut="SPACE" description="Defines the 'boolean' entity field type." toReformat="false" toShortenFQNames="true">
+    <variable name="fieldname" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="fieldlabel" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="drupal_entity_created_field" value="/**&#10; * @see \Drupal\Core\Field\Plugin\Field\FieldType\CreatedItem;&#10; */&#10;$fields['$fieldname$'] = BaseFieldDefinition::create('created')&#10;    -&gt;setLabel('$fieldLabel$')&#10;    -&gt;setRequired(TRUE);&#10;      " description="Defines the 'created' entity field type." toReformat="false" toShortenFQNames="true">
+    <variable name="fieldname" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="fieldLabel" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="drupal_entity_email_field" value="/**&#10; * @see \Drupal\Core\Field\Plugin\Field\FieldType\EmailItem;&#10; */&#10;$fields['$fieldname$'] = BaseFieldDefinition::create('email')&#10;    -&gt;setLabel('Email')&#10;    -&gt;setDisplayOptions('view', [&#10;        'label' =&gt; 'above',&#10;        'type' =&gt; 'basic_string',&#10;        'weight' =&gt; -4,&#10;    ])&#10;    -&gt;setDisplayOptions('form', [&#10;        'label' =&gt; 'above',&#10;        'type' =&gt; 'email_default',&#10;        'weight' =&gt; -4,&#10;    ])&#10;    -&gt;setDisplayConfigurable('form', TRUE)&#10;    -&gt;setDisplayConfigurable('view', TRUE)&#10;    -&gt;setRequired(TRUE);&#10;" shortcut="SPACE" description="Defines the 'email' entity field type." toReformat="false" toShortenFQNames="true">
+    <variable name="fieldname" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="drupal_entity_float_field" value="/**&#10; * @see \Drupal\Core\Field\Plugin\Field\FieldType\FloatItem;&#10; */&#10;$fields['$fieldname$'] = BaseFieldDefinition::create('float')&#10;    -&gt;setLabel(t('$fieldlabel$'))&#10;    -&gt;setDisplayOptions('view', [&#10;        'label' =&gt; 'above',&#10;        'type' =&gt; 'number_decimal',&#10;        'weight' =&gt; -4,&#10;    ])&#10;    -&gt;setDisplayOptions('form', [&#10;        'label' =&gt; 'above',&#10;        'type' =&gt; 'number',&#10;        'weight' =&gt; -4,&#10;    ])&#10;    -&gt;setDisplayConfigurable('form', TRUE)&#10;    -&gt;setDisplayConfigurable('view', TRUE)&#10;    -&gt;setRequired(TRUE);&#10;      " shortcut="SPACE" description="Defines the 'float' entity field type." toReformat="true" toShortenFQNames="true">
+    <variable name="fieldname" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="fieldlabel" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="drupal_entity_image_field" value="/**&#10; * @see \Drupal\Core\Field\Plugin\Field\FieldType\ImageItem;&#10; */&#10;$fields['$fieldname$'] = BaseFieldDefinition::create('image')&#10;    -&gt;setLabel(t( '$fieldlabel$'))&#10;    -&gt;setDisplayOptions('view', [&#10;        'label' =&gt; 'above',&#10;        'type' =&gt; 'image',&#10;        'weight' =&gt; -4,&#10;    ])&#10;    -&gt;setDisplayOptions('form', [&#10;        'label' =&gt; 'above',&#10;        'type' =&gt; 'image_image',&#10;        'weight' =&gt; -4,&#10;    ])&#10;    -&gt;setDisplayConfigurable('form', TRUE)&#10;    -&gt;setDisplayConfigurable('view', TRUE)&#10;    -&gt;setRequired(TRUE);" shortcut="SPACE" description="Defines the 'image' entity field type." toReformat="false" toShortenFQNames="true">
+    <variable name="fieldname" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="fieldlabel" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="drupal_entity_language_field" value="/**&#10; * @see \Drupal\Core\Field\Plugin\Field\FieldType\LanguageItem;&#10; */&#10;$fields['$fieldname$'] = BaseFieldDefinition::create('language')&#10;      -&gt;setLabel(t( '$fieldlabel$'))&#10;      -&gt;setDisplayOptions('view', [&#10;        'label' =&gt; 'above',&#10;        'type' =&gt; 'language'&#10;        'weight' =&gt; -4,&#10;      ])&#10;      -&gt;setDisplayOptions('form', [&#10;        'type' =&gt; 'language_select',&#10;        'weight' =&gt; -4,&#10;      ])&#10;      -&gt;setRequired(TRUE);" shortcut="SPACE" description="Defines the 'language' entity field type." toReformat="false" toShortenFQNames="true">
+    <variable name="fieldname" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="fieldlabel" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="drupal_entity_list_float_field" value="/**&#10; * @see \Drupal\Core\Field\Plugin\Field\FieldType\ListFloatItem;&#10; */&#10;$fields['$fieldname$'] = BaseFieldDefinition::create('list_float')&#10;      -&gt;setLabel(t( '$fieldlabel$'))&#10;      -&gt;setDisplayOptions('view', [&#10;            'label' =&gt; 'above',&#10;            'type' =&gt; 'list_default',&#10;            'weight' =&gt; -4,&#10;          ])&#10;      -&gt;setDisplayOptions('form', [&#10;        'label' =&gt; 'above',&#10;        'type' =&gt; 'options_select',&#10;        'weight' =&gt; -4,&#10;      ])&#10;      -&gt;setDisplayConfigurable('form', TRUE)&#10;      -&gt;setDisplayConfigurable('view', TRUE)&#10;      -&gt;setRequired(TRUE);&#10;      " description="Defines the 'list_float' entity field type." toReformat="true" toShortenFQNames="true">
+    <variable name="fieldname" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="fieldlabel" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="drupal_entity_list_integer_field" value="/**&#10; * @see \Drupal\Core\Field\Plugin\Field\FieldType\ListIntegerItem;&#10; */&#10;$fields['$fieldname$'] = BaseFieldDefinition::create('list_integer')&#10;    -&gt;setLabel(t( '$fieldlabel$'))&#10;    -&gt;setDisplayOptions('view', [&#10;    'label' =&gt; 'above',&#10;    'type' =&gt; 'list_default',&#10;    'weight' =&gt; -4,&#10;    ])&#10;    -&gt;setDisplayOptions('form', [&#10;    'label' =&gt; 'above',&#10;    'type' =&gt; 'options_select',&#10;    'weight' =&gt; -4,&#10;    ])&#10;    -&gt;setDisplayConfigurable('form', TRUE)&#10;    -&gt;setDisplayConfigurable('view', TRUE)&#10;    -&gt;setRequired(TRUE);&#10;" description="Defines the 'list_integer' entity field type." toReformat="false" toShortenFQNames="true">
+    <variable name="fieldname" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="fieldlabel" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="drupal_entity_list_string_field" value="/**&#10; * @see \Drupal\Core\Field\Plugin\Field\FieldType\ListStringItem;&#10; */&#10;$fields['$fieldname$'] = BaseFieldDefinition::create('list_string')&#10;    -&gt;setLabel(t( '$fieldlabel$'))&#10;    -&gt;setDisplayOptions('view', [&#10;    'label' =&gt; 'above',&#10;    'type' =&gt; 'list_default',&#10;    'weight' =&gt; -4,&#10;    ])&#10;    -&gt;setDisplayOptions('form', [&#10;    'label' =&gt; 'above',&#10;    'type' =&gt; 'options_select',&#10;    'weight' =&gt; -4,&#10;    ])&#10;    -&gt;setDisplayConfigurable('form', TRUE)&#10;    -&gt;setDisplayConfigurable('view', TRUE)&#10;    -&gt;setRequired(TRUE);&#10;" description="Defines the 'list_string' entity field type." toReformat="false" toShortenFQNames="true">
+    <variable name="fieldname" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="fieldlabel" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="drupal_entity_path_field" value="/**&#10; * @see \Drupal\Core\Field\Plugin\Field\FieldType\PathItem;&#10; */&#10;$fields['$fieldname$'] = BaseFieldDefinition::create('path')&#10;      -&gt;setDisplayOptions('form', [&#10;        'type' =&gt; 'path',&#10;        'weight' =&gt; -4,&#10;      ])&#10;      -&gt;setLabel(t( '$fieldlabel$'))&#10;      -&gt;setDisplayConfigurable('form', TRUE)&#10;      -&gt;setDisplayConfigurable('view', TRUE)&#10;      -&gt;setRequired(TRUE);" shortcut="SPACE" description="Defines the 'path' entity field type." toReformat="false" toShortenFQNames="true">
+    <variable name="fieldname" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="fieldlabel" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="drupal_entity_string_long_field" value="/**&#10; * @see \Drupal\Core\Field\Plugin\Field\FieldType\StringLongItem;&#10; */&#10;$fields['$fieldname$'] = BaseFieldDefinition::create('string_long')&#10;      -&gt;setLabel(t('$label$'))&#10;      -&gt;setDisplayOptions('view', [&#10;        'label' =&gt; 'above',&#10;        'type' =&gt; 'basic_string',&#10;        'weight' =&gt; -4,&#10;      ])&#10;      -&gt;setDisplayOptions('form', [&#10;        'type' =&gt; 'string_textarea',&#10;        'weight' =&gt; -4,&#10;      ])&#10;      -&gt;setDisplayConfigurable('form', TRUE)&#10;      -&gt;setDisplayConfigurable('view', TRUE)&#10;      -&gt;setRequired(TRUE);&#10;      &#10;      " description="Defines the 'string_long' entity field type. | Text (plain, long)" toReformat="true" toShortenFQNames="true">
+    <variable name="fieldname" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="label" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="drupal_entity_telephone_field" value="/**&#10; * @see \Drupal\Core\Field\Plugin\Field\FieldType\TelephoneItem;&#10; */&#10;$fields['$fieldname$'] = BaseFieldDefinition::create('telephone')&#10;      -&gt;setLabel(t('$label$'))&#10;      -&gt;setSettings([&#10;        'max_length' =&gt; 50,&#10;        'text_processing' =&gt; 0,&#10;      ])&#10;      -&gt;setDefaultValue('')&#10;      -&gt;setDisplayOptions('view', [&#10;        'label' =&gt; 'above',&#10;        'type' =&gt; 'telephone_default',&#10;        'weight' =&gt; -4,&#10;      ])&#10;      -&gt;setDisplayOptions('form', [&#10;        'type' =&gt; 'telephone_default',&#10;        'weight' =&gt; -4,&#10;      ])&#10;      -&gt;setDisplayConfigurable('form', TRUE)&#10;      -&gt;setDisplayConfigurable('view', TRUE)&#10;      -&gt;setRequired(TRUE);&#10;      &#10;      " description="Defines the 'telephone' entity field type." toReformat="true" toShortenFQNames="true">
+    <variable name="fieldname" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="label" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="drupal_entity_text_field" value="/**&#10; * @see \Drupal\Core\Field\Plugin\Field\FieldType\TextItem;&#10; */&#10;$fields['$fieldname$'] = BaseFieldDefinition::create('text')&#10;      -&gt;setLabel(t('$label$'))&#10;      -&gt;setSettings([&#10;        'max_length' =&gt; 255,&#10;      ])&#10;      -&gt;setDefaultValue('')&#10;      -&gt;setDisplayOptions('view', [&#10;        'label' =&gt; 'above',&#10;        'type' =&gt; 'text_default',&#10;        'weight' =&gt; -4,&#10;      ])&#10;      -&gt;setDisplayOptions('form', [&#10;        'type' =&gt; 'text_textfield',&#10;        'weight' =&gt; -4,&#10;      ])&#10;      -&gt;setDisplayConfigurable('form', TRUE)&#10;      -&gt;setDisplayConfigurable('view', TRUE)&#10;      -&gt;setRequired(TRUE);&#10;      &#10;      " shortcut="SPACE" description="Defines the 'text' entity field type. | formatted text" toReformat="true" toShortenFQNames="true">
+    <variable name="fieldname" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="label" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="drupal_entity_text_long_field" value="/**&#10; * @see \Drupal\Core\Field\Plugin\Field\FieldType\TextLongItem;&#10; */&#10;$fields['$fieldname$'] = BaseFieldDefinition::create('text_long')&#10;      -&gt;setLabel(t('$label$'))&#10;      -&gt;setDefaultValue('')&#10;      -&gt;setDisplayOptions('view', [&#10;        'label' =&gt; 'above',&#10;        'type' =&gt; 'text_default',&#10;        'weight' =&gt; -4,&#10;      ])&#10;      -&gt;setDisplayOptions('form', [&#10;        'type' =&gt; 'text_textarea',&#10;        'weight' =&gt; -4,&#10;      ])&#10;      -&gt;setDisplayConfigurable('form', TRUE)&#10;      -&gt;setDisplayConfigurable('view', TRUE)&#10;      -&gt;setRequired(TRUE);&#10;      &#10;      " shortcut="SPACE" description="Defines the 'text_long' entity field type. | formatted text" toReformat="true" toShortenFQNames="true">
+    <variable name="fieldname" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="label" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="drupal_entity_text_with_summary_field" value="/**&#10; * @see \Drupal\Core\Field\Plugin\Field\FieldType\TextWithSummaryItem;&#10; */&#10;$fields['$fieldname$'] = BaseFieldDefinition::create('text_with_summary')&#10;      -&gt;setLabel(t('$label$'))&#10;      -&gt;setDefaultValue('')&#10;      -&gt;setDisplayOptions('view', [&#10;        'label' =&gt; 'above',&#10;        'type' =&gt; 'text_default',&#10;        'weight' =&gt; -4,&#10;      ])&#10;      -&gt;setDisplayOptions('form', [&#10;        'type' =&gt; 'text_textarea_with_summary',&#10;        'weight' =&gt; -4,&#10;      ])&#10;      -&gt;setDisplayConfigurable('form', TRUE)&#10;      -&gt;setDisplayConfigurable('view', TRUE)&#10;      -&gt;setRequired(TRUE);&#10;      &#10;      " shortcut="SPACE" description="Defines the 'text_with_summary' entity field type. | formatted text" toReformat="true" toShortenFQNames="true">
+    <variable name="fieldname" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="label" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="drupal_entity_map_field" value="/**&#10; * @see \Drupal\Core\Field\Plugin\Field\FieldType\MapItem;&#10; * An entity field for storing a serialized array of values.&#10; */&#10;$fields['$fieldname$'] = BaseFieldDefinition::create('map');&#10;      " shortcut="SPACE" description="Defines the 'map' entity field type. | An entity field for storing a serialized array of values." toReformat="false" toShortenFQNames="true">
+    <variable name="fieldname" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="drupal_entity_password_field" value="/**&#10; * @see \Drupal\Core\Field\Plugin\Field\FieldType\PasswordItem;&#10; */&#10;$fields['$fieldname$'] = BaseFieldDefinition::create('password');" shortcut="SPACE" description="Defines the 'password' entity field type. | An entity field containing a password value" toReformat="false" toShortenFQNames="true">
+    <variable name="fieldname" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+</templateSet>
