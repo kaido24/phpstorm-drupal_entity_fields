@@ -172,7 +172,7 @@
       <option name="PHP" value="true" />
     </context>
   </template>
-  <template name="drupal_entity_password_field" value="/**&#10; * @see \Drupal\Core\Field\Plugin\Field\FieldType\$test$Item;&#10; */&#10;$fields['$fieldname$'] = BaseFieldDefinition::create('SOMEFIELDTYPE')&#10;      -&gt;setDisplayOptions('view', [&#10;        'label' =&gt; 'above',&#10;        'type' =&gt; '$type$',&#10;        'weight' =&gt; -4,&#10;      ])&#10;      -&gt;setDisplayOptions('form', [&#10;        'type' =&gt; '$type$',&#10;        'weight' =&gt; -4,&#10;      ])&#10;      -&gt;setLabel(t( '$fieldlabel$'))&#10;      -&gt;setDisplayConfigurable('form', TRUE)&#10;      -&gt;setDisplayConfigurable('view', TRUE)&#10;      -&gt;setRequired(TRUE);&#10;      " shortcut="SPACE" description="Defines the 'SOMEFIELDTYPE' entity field type." toReformat="false" toShortenFQNames="true">
+  <template name="drupal_entity_password_field" value="/**&#10; * @see \Drupal\Core\Field\Plugin\Field\FieldType\PasswordItem;&#10; */&#10;$fields['$fieldname$'] = BaseFieldDefinition::create('password');&#10;" shortcut="SPACE" description="Defines the 'password' entity field type." toReformat="false" toShortenFQNames="true">
     <variable name="test" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="fieldname" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="type" expression="" defaultValue="" alwaysStopAt="true" />
