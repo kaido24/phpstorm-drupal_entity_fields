@@ -181,4 +181,12 @@
       <option name="PHP" value="true" />
     </context>
   </template>
+  <template name="drupal_entity_daterange_field" value="    /**&#10;    * @see  \Drupal\datetime_range\Plugin\Field\FieldType\DateRangeItem;&#10;    */&#10;    $fields['$field_name$'] = BaseFieldDefinition::create('daterange')&#10;      -&gt;setLabel(t('$field_label$'))&#10;      -&gt;setDescription(t('$field_description$'))&#10;      -&gt;setDisplayOptions('view', [&#10;        'label' =&gt; 'above',&#10;        'type' =&gt; 'daterange_default',&#10;      ])&#10;      -&gt;setDisplayOptions('form', [&#10;        'type' =&gt; 'daterange_default',&#10;      ])&#10;      -&gt;setDisplayConfigurable('form', TRUE)&#10;      -&gt;setDisplayConfigurable('view', TRUE);" description="Defines the 'daterange' entity field type." toReformat="false" toShortenFQNames="true">
+    <variable name="field_name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="field_label" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="field_description" expression="" defaultValue="" alwaysStopAt="true" />
+     <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
 </templateSet>
